@@ -5,7 +5,6 @@ one:
   last_name: MyString
   first_name: MyString
   middle_name: MyString
-  age: 1
   birthday: 2024-12-20 22:51:06
 
 two:
@@ -13,5 +12,4 @@ two:
   last_name: MyString
   first_name: MyString
   middle_name: MyString
-  age: 1
   birthday: 2024-12-20 22:51:06
