@@ -6,6 +6,7 @@ one:
   first_name: MyString
   middle_name: MyString
   birthday: 2024-12-20 22:51:06
+  password_digest: <%= User.digest('password') %>
 
 two:
   email: MyString
@@ -13,3 +14,4 @@ two:
   first_name: MyString
   middle_name: MyString
   birthday: 2024-12-20 22:51:06
+  password_digest: <%= User.digest('password') %>
