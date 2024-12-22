@@ -2,8 +2,8 @@
 
 one:
   user: one
-  name: 1
+  role_name: 1
 
 two:
   user: two
-  name: 1
+  role_name: 1
