@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_many :roles, dependent: :destroy
+  has_many :competitions_users
+  has_many :competitions, through: :competitions_users
 
   validates :email, presence: true, uniqueness: true
   # validates :password_digest, presence: true, uniqueness: true
