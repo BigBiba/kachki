@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_23_215936) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_24_193954) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -43,6 +43,18 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_23_215936) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "results", force: :cascade do |t|
+    t.bigint "athlete_id", null: false
+    t.bigint "referee_id", null: false
+    t.bigint "competition_id", null: false
+    t.float "scope"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["athlete_id"], name: "index_results_on_athlete_id"
+    t.index ["competition_id"], name: "index_results_on_competition_id"
+    t.index ["referee_id"], name: "index_results_on_referee_id"
+  end
+
   create_table "roles", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.integer "role_name", default: 0
@@ -64,5 +76,8 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_23_215936) do
 
   add_foreign_key "competitions_users", "competitions"
   add_foreign_key "competitions_users", "users"
+  add_foreign_key "results", "competitions"
+  add_foreign_key "results", "users", column: "athlete_id"
+  add_foreign_key "results", "users", column: "referee_id"
   add_foreign_key "roles", "users"
 end
