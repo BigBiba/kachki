@@ -10,9 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_22_160819) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_23_215936) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "competitions", force: :cascade do |t|
+    t.string "name", null: false
+    t.float "min_athlete_weight"
+    t.float "max_athlete_weight"
+    t.datetime "starts_at", null: false
+    t.datetime "ends_at", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "competitions_users", force: :cascade do |t|
+    t.bigint "competition_id", null: false
+    t.bigint "user_id", null: false
+    t.integer "role", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["competition_id"], name: "index_competitions_users_on_competition_id"
+    t.index ["user_id"], name: "index_competitions_users_on_user_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "place", null: false
+    t.datetime "starts_at", null: false
+    t.datetime "ends_at", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "roles", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -33,5 +62,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_22_160819) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "competitions_users", "competitions"
+  add_foreign_key "competitions_users", "users"
   add_foreign_key "roles", "users"
 end
