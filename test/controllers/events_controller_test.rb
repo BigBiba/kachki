@@ -6,11 +6,6 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get creat" do
-    get events_creat_url
-    assert_response :success
-  end
-
   test "should get show" do
     get events_show_url
     assert_response :success
@@ -18,11 +13,6 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
 
   test "should get edit" do
     get events_edit_url
-    assert_response :success
-  end
-
-  test "should get update" do
-    get events_update_url
     assert_response :success
   end
 

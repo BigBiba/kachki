@@ -8,9 +8,7 @@ class EventsController < ApplicationController
     events = Event.all.where("starts_at > ?", current_date)
   end
   def new
-    if @current_user.role?(:referee)
-      @event = Event.new
-    end
+    @event = Event.new
   end
 
   def create

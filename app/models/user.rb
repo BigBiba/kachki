@@ -21,4 +21,8 @@ class User < ApplicationRecord
     age -= 1 if today < birthday_date.change(year: today.year) # Уменьшаем на 1, если день рождения еще не был в этом году
     age
   end
+
+  def referee?
+    roles.find_by_role_name(:referee).present?
+  end
 end
