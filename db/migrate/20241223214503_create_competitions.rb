@@ -6,7 +6,7 @@ class CreateCompetitions < ActiveRecord::Migration[8.0]
       t.float :max_athlete_weight
       t.datetime :starts_at, null: false
       t.datetime :ends_at, null: false
-      t.references :event, null: false, foreign_key: true
+      # t.references :event, null: false, foreign_key: true
 
 
       t.timestamps
