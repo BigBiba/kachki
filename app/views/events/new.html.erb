@@ -11,11 +11,11 @@
     </div>
     <div class="field">
       <%= form.label :starts_at, "Начало:" %>
-      <%= form.datetime_field :starts_at, include_seconds: false %>
+      <%= form.datetime_field :starts_at, include_seconds: false, required: true %>
     </div>
     <div class="field">
       <%= form.label :ends_at, "Конец:" %>
-      <%= form.datetime_field :ends_at, include_seconds: false %>
+      <%= form.datetime_field :ends_at, include_seconds: false, required: true %>
     </div>
     <h2>Соревнования:</h2>
     <div id="competitions">
@@ -24,17 +24,17 @@
         <div class="competition-fields">
           <p>
             <%= competition_form.label :name, "Название:" %>
-            <%= competition_form.text_field :name %>
+            <%= competition_form.text_field :name, required: true %>
           </p>
           <%= competition_form.label :min_athlete_weight, "Минимальный вес атлета:" %>
-          <%= competition_form.number_field :min_athlete_weight, in: 30..500, step:0.01 %>
+          <%= competition_form.number_field :min_athlete_weight, in: 30..500, step:0.01, required: true %>
           <%= competition_form.label :max_athlete_weight, "Максимальный вес атлета:" %>
-          <%= competition_form.number_field :max_athlete_weight, min: 30..500, step:0.01 %>
+          <%= competition_form.number_field :max_athlete_weight, min: 30..500, step:0.01, required: true %>
           <p>
             <%= competition_form.label :starts_at, "Начало:" %>
-            <%= competition_form.datetime_field :starts_at %>
+            <%= competition_form.datetime_field :starts_at, required: true %>
             <%= competition_form.label :ends_at, "Конец:" %>
-            <%= competition_form.datetime_field :ends_at %>
+            <%= competition_form.datetime_field :ends_at, required: true %>
           </p>
         </div>
       <% end %>
