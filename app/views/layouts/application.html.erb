@@ -25,7 +25,10 @@
 
 
   </head>
-
+  <header>
+    <%= link_to "Главная", root_path %>
+    <%= link_to "Мероприятия", events_path %>
+  </header>
   <body>
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
