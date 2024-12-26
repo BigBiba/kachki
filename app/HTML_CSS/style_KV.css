@@ -1,0 +1,202 @@
+body {
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    background-color:#fceceb;
+}
+h2 {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+h3 {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+.container-fluid {
+    border-radius: 10px;
+}
+.card {
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: rgba(144, 32, 16, 0);
+}
+nav {   
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to bottom right, #A8E8FF, white);
+    margin-bottom: 10px;
+}
+
+.card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-body {
+border-radius: 10px;
+    background: linear-gradient(to bottom right, #606d96, #9eb5ff);
+    padding: 1.5rem;
+}
+
+.btn-light {
+    border-radius: 70px;
+    background: linear-gradient(to bottom right, #A8E8FF, white);
+    border: 0px solid black;
+    margin-top:15px;
+}
+.jumbotron {
+            position: relative;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-image: linear-gradient(
+            rgba(255, 255, 255, 0.35),
+            rgba(255, 255, 255, 0.35)
+          ), url("main.jpeg");
+            background-position: center;
+            background-size: cover;
+            
+            
+        }
+@media screen and (min-width: 1000px) {
+    .display-4 {
+        width: 95%;
+        margin-right: auto;
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+    .lead {
+        width: 65%;
+        margin-right: auto;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .lead {
+        width: 95%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .display-4 {
+        font-size: 41px;
+        width: 95%;
+        margin-right: auto;
+        margin-left: auto;
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+}
+.contact1 {
+    width: 35px;
+    higher: 35px;
+}
+header {
+        display: flex;
+        
+        flex-direction:column-reverse;
+        align-items:center;
+    }
+#phone {
+    font-size:18px;
+    color:black;
+    transition: color 0.5s ease-in;
+}
+
+#phone:hover {
+    color:black;
+}
+.big_img {
+    width: 12%;
+    higher: 12%;
+    margin-right:10px;
+    margin-bottom:13px;
+}
+.small_img {
+    width: 5%;
+    higher: 5%;
+    margin-right:15px;
+    margin-bottom:8px;
+}
+.img1 {
+    margin-left:20px;
+}
+.qwe {
+    font-size:20px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction:row;
+    align-items:center;
+}
+.big_img_text {
+    font-size:16px;
+    display: flex;
+    flex-direction:row;
+    align-items:center;
+    align-content:center;
+    flex-wrap: wrap;
+}
+
+
+.container.zxc {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start; /* Выравнивание по началу */
+    }
+
+    .text.zxc {
+      font-size: 20px;
+      margin-bottom: 0px;
+    }
+
+    .small-text.zxc {
+      font-size: 10px;
+      margin-top: 0px;
+    }
+.btn-light.zxc {
+    margin-top: 17px;
+}
+.card-text {
+    font-size:15px;
+}
+.list-group-item {
+    background-color: rgba(144, 32, 16, 0);
+}
+.modal.book {
+    background: linear-gradient(to bottom right, #A8E8FF, white);;
+    padding: 20px;
+    color:black;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 350px;
+    height:470px;
+    display: none;
+    position: fixed; /* Изменяем позиционирование на fixed */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Центрируем окно */
+}
+.modal.open {
+    display: block;
+}
+.close {
+    cursor: pointer;
+    color: red;
+    float: right;
+}
+.btn-light.submit {
+    background:#ac9c9b;
+}
+.custom-select {
+    width: 200px;
+}
+.count_people {
+    width: 140px;
+}
+.form-control {
+    margin-bottom:10px;
+}
+#name {
+    margin-top:20px;
+}
+.text_card {
+    font-size:14px;
+}
+
+.price-info {
+    margin-top:19px;
+    float:right;
+}
+.form_elem {
+    margin-bottom:10px;
+}
