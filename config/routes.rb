@@ -16,5 +16,8 @@ Rails.application.routes.draw do
 
   resources :events, only: [ :new, :create, :show, :index ]
   resources :users, only: [ :show ]
-  resources :competitions
+  resources :competitions do
+    post "/participate", to: "competitions#participate"
+    post "/judge", to: "competitions#judge"
+  end
 end
