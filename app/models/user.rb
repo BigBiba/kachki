@@ -23,8 +23,19 @@ class User < ApplicationRecord
     age -= 1 if today < birthday_date.change(year: today.year) # Уменьшаем на 1, если день рождения еще не был в этом году
     age
   end
+  def competitions_as_athlete
+    competitions_users.select { |cu| cu.role == 1 }.map(&:competition)
+    # competitions.joins(:competitions_users).where(competitions_users: { role: 1 })
+  end
+  def competitions_as_referee
+    competitions_users.select { |cu| cu.role == 2 }.map(&:competition)
+    # competitions.where(id: competitions_users.where(role: 2).pluck(:competition_id))
+  end
 
   def referee?
     roles.find_by_role_name(:referee).present?
+  end
+  def athlete?
+    roles.find_by_role_name(:athlete).present?
   end
 end
