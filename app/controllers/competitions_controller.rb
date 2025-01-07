@@ -1,7 +1,13 @@
 class CompetitionsController < ApplicationController
   def participate
-    Competition.find_by_id(params[:competition_id])
-               .competitions_users.create(user_id: current_user.id, role: 1)
+    @competition = Competition.find_by_id(params[:competition_id])
+
+    if current_user.valid_for_competition?(@competition)
+      @competition.competitions_users.create(user_id: current_user.id, role: 1)
+      redirect_to @competition, notice: "Вы успешно записались на соревнование."
+    else
+      redirect_to @competition, alert: "Ваш вес не соответствует требованиям соревнования."
+    end
   end
   def judge
     Competition.find_by_id(params[:competition_id])
@@ -15,7 +21,7 @@ class CompetitionsController < ApplicationController
   end
 
   def edit
-    @competition = Competition.find(params[:id])
+    @competition = Competition.find(params[:competition_id])
   end
 
   def update

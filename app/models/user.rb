@@ -24,11 +24,11 @@ class User < ApplicationRecord
     age
   end
   def competitions_as_athlete
-    competitions_users.select { |cu| cu.role == 1 }.map(&:competition)
+    competitions_users.select { |cu| cu.role == 1 }.map(&:competition).uniq
     # competitions.joins(:competitions_users).where(competitions_users: { role: 1 })
   end
   def competitions_as_referee
-    competitions_users.select { |cu| cu.role == 2 }.map(&:competition)
+    competitions_users.select { |cu| cu.role == 2 }.map(&:competition).uniq
     # competitions.where(id: competitions_users.where(role: 2).pluck(:competition_id))
   end
 
@@ -37,5 +37,9 @@ class User < ApplicationRecord
   end
   def athlete?
     roles.find_by_role_name(:athlete).present?
+  end
+
+  def valid_for_competition?(competition)
+    weight >= competition.min_athlete_weight && weight <= competition.max_athlete_weight
   end
 end
