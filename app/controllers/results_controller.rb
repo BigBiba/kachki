@@ -1,6 +1,6 @@
 class ResultsController < ApplicationController
-  before_action :set_competition, only: [:new, :create]
-  before_action :set_result, only: [:edit, :update]
+  before_action :set_competition, only: [ :new, :create ]
+  before_action :set_result, only: [ :edit, :update ]
 
   def new
     @competition = Competition.find(params[:competition_id])
