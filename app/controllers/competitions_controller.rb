@@ -15,11 +15,24 @@ class CompetitionsController < ApplicationController
   end
 
   def edit
+    @competition = Competition.find(params[:id])
   end
 
   def update
+    @competition = Competition.find(params[:id])
+    if @competition.update(competition_params)
+      redirect_to @competition, notice: "Соревнование успешно обновлено."
+    else
+      render :edit
+    end
   end
 
   def destroy
+  end
+
+  private
+
+  def competition_params
+    params.require(:competition).permit(:name, :min_athlete_weight, :max_athlete_weight, :starts_at, :ends_at)
   end
 end
