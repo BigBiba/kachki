@@ -2,6 +2,7 @@ class Competition < ApplicationRecord
   belongs_to :event, inverse_of: :competitions
   has_many :competitions_users
   has_many :users, through: :competitions_users
+  has_many :results, dependent: :destroy
 
   validates :event, presence: true
   validates :name, presence: true

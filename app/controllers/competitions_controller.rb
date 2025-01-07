@@ -10,8 +10,9 @@ class CompetitionsController < ApplicationController
     end
   end
   def judge
-    Competition.find_by_id(params[:competition_id])
-               .competitions_users.create(user_id: current_user.id, role: 2)
+    @competition = Competition.find_by_id(params[:competition_id])
+    @competition.competitions_users.create(user_id: current_user.id, role: 2)
+    redirect_to @competition, notice: "Теперь вы являетесь судьей"
   end
   def new
     @competition = Competition.new

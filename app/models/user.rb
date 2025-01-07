@@ -4,6 +4,8 @@ class User < ApplicationRecord
   has_many :competitions, through: :competitions_users
   has_many :results_as_referee, class_name: "User", foreign_key: :referee_id
   has_many :results_as_athlete, class_name: "User", foreign_key: :athlete_id
+  has_many :results_as_referee, class_name: "Result", foreign_key: :referee_id
+  has_many :results_as_athlete, class_name: "Result", foreign_key: :athlete_id
 
   validates :email, presence: true, uniqueness: true
   # validates :password_digest, presence: true, uniqueness: true
@@ -40,6 +42,11 @@ class User < ApplicationRecord
   end
 
   def valid_for_competition?(competition)
+    return false if weight.nil?
     weight >= competition.min_athlete_weight && weight <= competition.max_athlete_weight
+  end
+
+  def full_name
+    [last_name, first_name, middle_name].compact.join(" ")
   end
 end

@@ -20,6 +20,10 @@
     <div class="alert alert-danger">
       <%= flash[:alert] %>
     </div>
+  <% elsif flash[:notice] %>
+    <div class="judge judge-danger">
+      <%= flash[:notice] %>
+    </div>
   <% end %>
 
   <% if current_user.athlete? %>
@@ -31,11 +35,16 @@
 </div>
 
 <style>
-    .alert-danger {
+    .alert-danger, .judge-danger {
         color: red;
         background-color: #f8d7da;
         border: 1px solid #f5c6cb;
         padding: 10px;
         margin-top: 20px;
+    }
+
+    .judge-danger {
+        color: green;
+        background-color: wheat;
     }
 </style>

@@ -34,6 +34,37 @@
   </p>
 
   <p>
+    <strong>Результаты участника:</strong>
+    <% if @user.results_as_athlete.any? %>
+    <ul>
+      <% @user.results_as_athlete.each do |result| %>
+        <li>
+          <%= result.competition.name %>: <%= result.score %> (Судья: <%= result.referee.full_name %>)
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>Нет результатов.</p>
+  <% end %>
+  </p>
+
+  <p>
+    <strong>Результаты как судьи:</strong>
+    <% if @user.results_as_referee.any? %>
+    <ul>
+      <% @user.results_as_referee.each do |result| %>
+        <li>
+          <%= result.competition.name %>: <%= result.score %> (Участник: <%= result.athlete.full_name %>)
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>Нет выставленных результатов.</p>
+  <% end %>
+  </p>
+
+
+  <p>
     <strong>Email:</strong>
     <%= @user.email %>
   </p>

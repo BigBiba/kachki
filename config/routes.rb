@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     end
   end
   resources :competitions do
+    resources :results, only: [:new, :create, :edit, :update]
     post "/participate", to: "competitions#participate"
     post "/judge", to: "competitions#judge"
     post "/set_results", to: "competitions#set_results"
