@@ -42,7 +42,7 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(
       :title, :place, :starts_at, :ends_at,
-      competitions_attributes: [:id, :name, :min_athlete_weight, :max_athlete_weight, :starts_at, :ends_at, :_destroy]
+      competitions_attributes: [ :id, :name, :min_athlete_weight, :max_athlete_weight, :starts_at, :ends_at, :_destroy ]
     )
   end
 end
